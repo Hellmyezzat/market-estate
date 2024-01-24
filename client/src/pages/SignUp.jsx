@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
-import useSignUp from '../hooks/useSignUp '
+import useFormHandler from '../hooks/useFormHandler'
 
 function SignUp() {
-  const { error, loading, handleChange, handleSubmit } = useSignUp()
+  const { error, loading, handleChange, handleSubmit } = useFormHandler(
+    '/api/auth/signup',
+    '/sign-in'
+  )
 
   return (
     <div className="p-3 max-w-lg mx-auto">
