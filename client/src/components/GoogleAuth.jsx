@@ -9,22 +9,19 @@ function GoogleAuth() {
   const dispatch = useDispatch()
   const handleGoogleClick = async () => {
     try {
-
       const provider = new GoogleAuthProvider()
       const auth = getAuth(app)
-      const result = await signInWithPopup(auth, provider)
-     
+      const { user } = await signInWithPopup(auth, provider)
       const res = await fetch('/api/auth/google', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: result.user.displayName,
-          email: result.user.email,
-          photo: result.user.photoURL,
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
         }),
       })
       const data = await res.json()
-    
       dispatch(signInSuccess(data))
       navigate('/')
     } catch (error) {
