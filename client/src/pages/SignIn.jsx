@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import useFormHandler from '../hooks/useFormHandler'
+import { GoogleAuth } from '../components'
 
 function SignIn() {
   const { error, loading, handleChange, handleSubmit } = useFormHandler(
@@ -31,6 +32,7 @@ function SignIn() {
         >
           {loading ? 'Loading...' : 'Sign in'}
         </button>
+        <GoogleAuth/>
       </form>
       <div className="flex gap-2 mt-5">
         <p>Don`t Have an account?</p>
