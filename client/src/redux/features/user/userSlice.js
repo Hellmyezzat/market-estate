@@ -26,7 +26,9 @@ const userSlice = createSlice({
       state.loading = true
     },
     updateUserSuccess: (state, action) => {
-      state.currentUser = action.payload
+      state.currentUser.username = action.payload.username
+      state.currentUser.email = action.payload.email
+      state.currentUser.avatar = action.payload.avatar
       state.loading = false
       state.error = null
     },
@@ -58,6 +60,10 @@ const userSlice = createSlice({
       state.error = action.payload
       state.loading = false
     },
+    updateAvatar:(state,action)=>{
+      state.currentUser.avatar = action.payload
+      
+    }
   },
 })
 
@@ -74,5 +80,6 @@ export const {
   signOutUserStart,
   signOutUserSuccess,
   signOutUserFailure,
+  updateAvatar
 } = userSlice.actions
 export default userSlice.reducer
