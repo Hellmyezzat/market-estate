@@ -21,7 +21,7 @@ function DeleteAccount() {
        }
      }
   return (
-    <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">
+    <span onClick={handleDeleteUser} className="text-white cursor-pointer bg-red-600 p-3 rounded-lg">
       Delete account
     </span>
   )

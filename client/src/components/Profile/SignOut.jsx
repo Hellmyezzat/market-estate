@@ -18,7 +18,7 @@ function SignOut() {
         }
       }
   return (
-    <span onClick={handleSignOut} className="text-red-700 cursor-pointer">
+    <span onClick={handleSignOut} className="text-white bg-black p-3 rounded-lg cursor-pointer">
       Sign out
     </span>
   )
