@@ -11,12 +11,12 @@ import { updateAvatar } from '../../redux/features/user/userSlice'
 
 function ImageChange({ formData, setFormData, handleChange }) {
   const dispatch = useDispatch()
-  const { currentUser } = useSelector((state) => state.user)
+  const { avatar } = useSelector((state) => state.user.currentUser || {})
   const fileRef = useRef(null)
   const [file, setFile] = useState(undefined)
   const [uploadError, setUploadError] = useState(false)
   const [uploadPercentage, setUploadPercentage] = useState(0)
-
+  
   useEffect(() => {
     if (file) {
       handleFileUpload(file)
@@ -59,7 +59,7 @@ function ImageChange({ formData, setFormData, handleChange }) {
         }}
       />
       <img
-        src={currentUser.avatar || formData.avatar}
+        src={avatar || formData.avatar}
         alt="profile"
         onClick={() => fileRef.current.click()}
         className="rounded-full self-center mt-2 h-24 w-24 object-cover cursor-pointer"
