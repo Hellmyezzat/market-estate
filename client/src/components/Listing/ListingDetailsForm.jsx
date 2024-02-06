@@ -1,9 +1,9 @@
 import React from 'react'
-import ContainerListing from './ContainerListing'
+import Shadow from './Shadow'
 
 function ListingDetailsForm() {
   return (
-    <ContainerListing>
+    <Shadow>
       <div className="flex flex-col gap-4">
         <input
           type="text"
@@ -29,7 +29,7 @@ function ListingDetailsForm() {
           required
         />
       </div>
-    </ContainerListing>
+    </Shadow>
   )
 }
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import ContainerListing from './ContainerListing'
+import Shadow from './Shadow'
 
 function PropertyDetails() {
   return (
-    <ContainerListing>
+    <Shadow>
       <div className="flex flex-wrap gap-6">
         <div className="flex items-center gap-2">
           <input
@@ -56,7 +56,7 @@ function PropertyDetails() {
           </div>
         </div>
       </div>
-    </ContainerListing>
+    </Shadow>
   )
 }
 

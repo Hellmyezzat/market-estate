@@ -1,9 +1,9 @@
 import React from 'react'
-import ContainerListing from './ContainerListing'
+import Shadow from './Shadow'
 
 function ListingTypeOptions() {
   return (
-    <ContainerListing>
+    <Shadow>
       <div className="flex gap-6 flex-wrap">
         <div className="flex gap-2">
           <input type="checkbox" id="sale" className="w-5" />
@@ -26,7 +26,7 @@ function ListingTypeOptions() {
           <span>Offer</span>
         </div>
       </div>
-    </ContainerListing>
+    </Shadow>
   )
 }
 
