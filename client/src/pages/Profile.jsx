@@ -1,6 +1,6 @@
-import { DeleteAccount, ImageChange, SignOut } from '../components/Profile'
+import { DeleteAccount, ImageChange, ShowListings, SignOut } from '../components/Profile'
 import useUpdateProfile from '../hooks/useUpdateProfile'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Profile() {
   const {
@@ -15,7 +15,7 @@ function Profile() {
   } = useUpdateProfile()
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-3 max-w-lg mx-auto flex flex-col gap-4">
       <h1 className="text-center text-3xl font-semibold my-7">Profile</h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <ImageChange
@@ -54,7 +54,12 @@ function Profile() {
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
-        <Link to={'/create-listing'} className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'>Create Listing</Link>
+        <Link
+          to={'/create-listing'}
+          className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <DeleteAccount />
@@ -64,6 +69,7 @@ function Profile() {
       <p className="text-green-700">
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
+      <ShowListings/>
     </div>
   )
 }
