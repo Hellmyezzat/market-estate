@@ -1,29 +1,19 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import useShowListings from '../../hooks/useShowListings'
 
 function ShowListings() {
-  const { currentUser } = useSelector((state) => state.user)
-  const [showListingsError, setShowListingsError] = useState(false)
-  const [userListings, setUserListings] = useState([])
-  console.log(userListings)
-  const handleShowListing = async () => {
-    try {
-      const res = await fetch(`/api/user/listings/${currentUser._id}`)
-      const data = await res.json()
-      if (data.success === false) {
-        setShowListingsError(true)
-        return
-      }
-      setUserListings(data)
-    } catch (error) {
-      setShowListingsError(error)
-    }
-  }
+  const {
+    handleToggleListings,
+    hiddenListing,
+    showListingsError,
+    userListings,
+    handleListingDelete,
+  } = useShowListings()
+
   return (
     <>
-      <button onClick={handleShowListing} className="text-green-700 w-full">
-        Show Listings
+      <button onClick={handleToggleListings} className="text-green-700 w-full">
+        {hiddenListing ? 'Show Listings' : 'Hide Listings'}
       </button>
       <p className="text-red-700">
         {showListingsError ? 'Error showing listings' : ''}
@@ -49,7 +39,10 @@ function ShowListings() {
                 <p>{list.name}</p>
               </Link>
               <div className="flex flex-col gap-2 items-center">
-                <button className="bg-red-700 text-white  px-3 rounded-lg">
+                <button
+                  onClick={() => handleListingDelete(list._id)}
+                  className="bg-red-700 text-white  px-3 rounded-lg"
+                >
                   Delete
                 </button>
                 <button className="bg-green-700 text-white px-2 rounded-lg">
