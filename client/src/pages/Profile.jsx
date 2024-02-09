@@ -1,4 +1,4 @@
-import { DeleteAccount, ImageChange, ShowListings, SignOut } from '../components/Profile'
+import { DeleteAccount, ImageChange, ProfileForm, ShowListings, SignOut } from '../components/Profile'
 import useUpdateProfile from '../hooks/useUpdateProfile'
 import { Link } from 'react-router-dom'
 
@@ -23,37 +23,7 @@ function Profile() {
           setFormData={setFormData}
           handleChange={handleChange}
         />
-        <input
-          className="border p-3 rounded-lg"
-          id="username"
-          type="text"
-          placeholder="username"
-          defaultValue={currentUser.username}
-          onChange={handleChange}
-        />
-        <input
-          className="border p-3 rounded-lg"
-          id="email"
-          type="email"
-          placeholder="email"
-          defaultValue={currentUser.email}
-          onChange={handleChange}
-        />
-        <input
-          className="border p-3 rounded-lg"
-          id="password"
-          type="password"
-          placeholder="password"
-          defaultValue={currentUser.password}
-          onChange={handleChange}
-        />
-        <button
-          disabled={loading}
-          className="bg-slate-700 text-white rounded-lg p-3
-                 uppercase hover:opacity-95 disabled:opacity-80"
-        >
-          {loading ? 'Loading...' : 'Update'}
-        </button>
+        <ProfileForm handleChange={handleChange} loading={loading} />
         <Link
           to={'/create-listing'}
           className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95"
@@ -69,7 +39,7 @@ function Profile() {
       <p className="text-green-700">
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
-      <ShowListings/>
+      <ShowListings />
     </div>
   )
 }
