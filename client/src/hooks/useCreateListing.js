@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-const useFormListing = () => {
+const useCreateListing = () => {
     const navigate = useNavigate()
   const { currentUser } = useSelector((state) => state.user)
   const [error, setError] = useState(false)
@@ -83,4 +83,4 @@ const useFormListing = () => {
   }
 }
 
-export default useFormListing
+export default useCreateListing

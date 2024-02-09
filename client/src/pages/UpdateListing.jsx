@@ -5,9 +5,9 @@ import {
   ListingTypeOptions,
   PropertyDetails,
 } from '../components/Listing'
-import useCreateListing from '../hooks/useCreateListing'
+import useUpdateListing from '../hooks/useUpdateListing'
 
-function CreateListing() {
+function UpdateListing() {
   const {
     listingData,
     setListingData,
@@ -17,11 +17,11 @@ function CreateListing() {
     setError,
     loading,
     setLoading,
-  } = useCreateListing()
+  } = useUpdateListing()
   return (
     <main className="p-3 max-w-4xl mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">
-        Create a Listing
+        Update a Listing
       </h1>
       <form
         onSubmit={handleSubmit}
@@ -57,4 +57,4 @@ function CreateListing() {
   )
 }
 
-export default CreateListing
+export default UpdateListing

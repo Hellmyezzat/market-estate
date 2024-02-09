@@ -45,9 +45,11 @@ function ShowListings() {
                 >
                   Delete
                 </button>
+                <Link to={`/update-listing/${list._id}`}>
                 <button className="bg-green-700 text-white px-2 rounded-lg">
-                  Update
+                  Edit
                 </button>
+                </Link>
               </div>
             </div>
           ))}
