@@ -26,14 +26,14 @@ function ShowListings() {
               key={list._id}
               className="border rounded-lg p-3 flex justify-between items-center gap-4"
             >
-              <Link to={`/listings/${list._id}`}>
+              <Link to={`/listing/${list._id}`}>
                 <img
                   src={list.imageUrls[0]}
                   className="h-16 w-16 object-contain"
                 />
               </Link>
               <Link
-                to={`/listings/${list._id}`}
+                to={`/listing/${list._id}`}
                 className="flex-1 text-slate-700 font-semibold  hover:underline"
               >
                 <p>{list.name}</p>

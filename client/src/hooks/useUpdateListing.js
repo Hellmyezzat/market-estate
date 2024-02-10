@@ -73,11 +73,12 @@ const useUpdateListing = () => {
         body: JSON.stringify({ ...listingData, userRef: currentUser._id }),
       })
 
-      const data = await res.json
+      const data = await res.json()
       setLoading(false)
       if (data.success === false) {
         setError(data.message)
       }
+      console.log(data);
       navigate(`/listing/${data._id}`)
     } catch (error) {
       setError(error.message)
