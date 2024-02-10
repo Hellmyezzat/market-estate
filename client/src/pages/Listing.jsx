@@ -4,6 +4,7 @@ import {
   Loading,
   Wrong,
   ListingDetails,
+  Contact,
 } from '../components/ListingPage'
 import useFetchListing from '../hooks/useFetchListing'
 
@@ -17,7 +18,10 @@ function Listing() {
         <>
           <ImageSlider listing={listing} />
           <Copied />
-          <ListingDetails listing={listing} />
+          <div className="flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4">
+            <ListingDetails listing={listing} />
+            <Contact listing={listing} />
+          </div>
         </>
       )}
     </main>

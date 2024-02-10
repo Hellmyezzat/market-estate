@@ -3,7 +3,7 @@ import { FaBath, FaBed, FaChair, FaMapMarkedAlt, FaParking } from 'react-icons/f
 
 function ListingDetails({ listing }) {
   return (
-    <div className="flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4">
+    <>
       <p className="text-2xl font-semibold">
         {listing.name} - $
         {listing.offer
@@ -51,7 +51,7 @@ function ListingDetails({ listing }) {
           {listing.furnished ? 'Furnished' : 'Unfurnished'}
         </li>
       </ul>
-    </div>
+    </>
   )
 }
 
