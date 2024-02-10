@@ -4,7 +4,7 @@ import {
   ListingDetailsForm,
   ListingTypeOptions,
   PropertyDetails,
-} from '../components/Listing'
+} from '../components/ListingCreateAndUpdate'
 import useUpdateListing from '../hooks/useUpdateListing'
 
 function UpdateListing() {
