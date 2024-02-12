@@ -1,8 +1,11 @@
-import React from 'react'
+import { Results, SearchSideBar } from '../components/Search'
 
 function Search() {
   return (
-    <div>Search</div>
+    <div className="flex flex-col md:flex-row">
+      <SearchSideBar />
+      <Results />
+    </div>
   )
 }
 
