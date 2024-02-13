@@ -14,6 +14,7 @@ const useHandleSearch = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [listings, setListings] = useState([])
+  const [showMore, setShowMore] = useState(false)
   const [sidebarData, setSidebarData] = useState({
     searchTerm: '',
     type: 'all',
@@ -122,11 +123,17 @@ const useHandleSearch = () => {
     const fetchListings = async () => {
       try {
         setLoading(true)
+        setShowMore(false)
 
         const searchQuery = urlParams.toString()
         const res = await fetch(`/api/listing/get?${searchQuery}`)
         const data = await res.json()
         setListings(data)
+        if (data.length > 8) {
+          setShowMore(true)
+        }else{
+          setShowMore(false)
+        }
 
         setLoading(false)
       } catch (error) {
@@ -136,6 +143,20 @@ const useHandleSearch = () => {
     }
     fetchListings()
   }, [location.search])
+
+  const onShowMoreClick = async () => {
+    const startIndex =  listings.length
+    const urlParams = new URLSearchParams(location.search)
+    urlParams.set('startIndex', startIndex)
+
+    const searchQuery = urlParams.toString()
+    const res = await fetch(`/api/listing/get?${searchQuery}`)
+    const data = await res.json()
+    if (data.length < 9) {
+      setShowMore(false)
+    }
+    setListings([...listings, ...data])
+  }
 
   return {
     handleChange,
@@ -147,6 +168,8 @@ const useHandleSearch = () => {
     navigate,
     sidebarData,
     setSidebarData,
+    showMore,
+    onShowMoreClick,
   }
 }
 

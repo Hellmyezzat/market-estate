@@ -2,7 +2,7 @@ import ListingItem from './ListingItem'
 import useHandleSearch from '../../hooks/useHandleSearch'
 
 function Results() {
-  const { listings, loading } = useHandleSearch()
+  const { listings, loading, showMore, onShowMoreClick } = useHandleSearch()
   return (
     <div className="flex-1">
       <h1 className="text-3xl font-semibold border-b p-3 text-slate-700 mt-5">
@@ -23,9 +23,14 @@ function Results() {
             <ListingItem key={listing._id} listing={listing} />
           ))}
       </div>
-      <button className="text-green-700 hover:underline p-7 text-center w-full">
-        Show more
-      </button>
+      {showMore && (
+        <button
+          onClick={onShowMoreClick}
+          className="text-green-700 hover:underline p-7 text-center w-full"
+        >
+          Show more
+        </button>
+      )}
     </div>
   )
 }
