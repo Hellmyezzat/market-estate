@@ -7,7 +7,7 @@ import {
   signInSuccess,
 } from '../redux/features/user/userSlice'
 
-const useFormHandler = (apiEndpoint, successRedirect) => {
+const useAuth = (apiEndpoint, successRedirect) => {
   const dispatch = useDispatch()
   const { error, loading } = useSelector((state) => state.user)
 
@@ -50,4 +50,4 @@ const useFormHandler = (apiEndpoint, successRedirect) => {
   }
 }
 
-export default useFormHandler
+export default useAuth

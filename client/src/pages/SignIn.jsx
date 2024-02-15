@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import useFormHandler from '../hooks/useFormHandler'
+import useAuth from '../hooks/useAuth'
 import { GoogleAuth } from '../components'
 
 function SignIn() {
-  const { error, loading, handleChange, handleSubmit } = useFormHandler(
-    '/api/auth/signin',
-    '/'
+  const { error, loading, handleChange, handleSubmit } = useAuth(
+    '/api/auth/signin', // apiEndpoint
+    '/' // successRedirect
   )
 
   return (
@@ -32,7 +32,7 @@ function SignIn() {
         >
           {loading ? 'Loading...' : 'Sign in'}
         </button>
-        <GoogleAuth/>
+        <GoogleAuth />
       </form>
       <div className="flex gap-2 mt-5">
         <p>Don`t Have an account?</p>

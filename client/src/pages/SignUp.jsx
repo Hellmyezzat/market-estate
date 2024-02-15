@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import useFormHandler from '../hooks/useFormHandler'
+import useAuth from '../hooks/useAuth'
 import { GoogleAuth } from '../components'
 
 function SignUp() {
-  const { error, loading, handleChange, handleSubmit } = useFormHandler(
-    '/api/auth/signup',
-    '/sign-in'
+  const { error, loading, handleChange, handleSubmit } = useAuth(
+    '/api/auth/signup', // apiEndpoint
+    '/sign-in' // successRedirect
   )
 
   return (
