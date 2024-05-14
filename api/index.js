@@ -24,7 +24,7 @@ const app = express()
 
 app.use(
   cors({
-    origin: [''],
+    origin: ['https://market-estate-client.vercel.app/'],
     methods: ['POST', 'GET'],
     credential: true,
   })
